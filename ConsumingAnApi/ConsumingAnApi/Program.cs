@@ -29,11 +29,8 @@ namespace ConsumingAnApi
 
         static List<CustomObject> Input()
         {
-            /*Create a web Client to use*/
-            WebClient wc = new WebClient();
-
-            /*Use the WebClient to read in the Json string from the database*/
-            string json = wc.DownloadString("https://uinames.com/api/?amount=50");
+            /*Create and use a WebClient to read in the Json string from the database*/
+            string json2 = new WebClient().DownloadString("https://uinames.com/api/?amount=50");
 
             /*We can display the json string to check it if we wanted to*/
             //Console.WriteLine("*************** Json ***************");
@@ -41,7 +38,7 @@ namespace ConsumingAnApi
 
             /*I now create a list of the object made for the data by using the JavaScriptSerializer
               and use the Deserialize method to populate the list using our object we made*/
-            List<CustomObject> lst = new JavaScriptSerializer().Deserialize<List<CustomObject>>(json);
+            List<CustomObject> lst = new JavaScriptSerializer().Deserialize<List<CustomObject>>(json2);
 
             return lst;
         }
